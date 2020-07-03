@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  backup:
+    image: registry.2le.net/2le/devops:mysqlbackup
+    environment:
+      - DBHOST=db
+      - DBPASS=hx86YLgXqCYe7vZg
+      - CRONH=7
+      - CRONM=18
+    volumes:
+      - /data/backup:/backup
+
+  db:
+    image: mysql:5.7
+    environment:
+      - "MYSQL_ROOT_PASSWORD=hx86YLgXqCYe7vZg"
+      - "MYSQL_DATABASE=toto"
+
